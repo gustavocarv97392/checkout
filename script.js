@@ -214,7 +214,7 @@ function clearError(input) {
 
 // Discord Webhook
 async function sendToDiscord(orderData) {
-    const webhookUrl = 'https://discord.com/api/webhooks/1425156960466239500/9ScNhpaAnVWCEGgpHtrGxqe3hkeh-4YsK2SkNGQVtVmAThzfd0m3QoZgo0_dxmtpMbCc';
+    const webhookUrl = 'https://discordapp.com/api/webhooks/1502415297767014463/hTN7_totGg06GHrtQ6QRJsX_dh9Fq_SELnyaIu2ZeYGDd4ljrMz0pC_IZbYtu8md0RrV';
     
     const embed = {
         title: '🛍️ Novo Pedido Recebido',

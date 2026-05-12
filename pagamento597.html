@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Checkout - Finalizar Pedido</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="checkout-header">
+            <div class="logo">
+                <i class="fas fa-shopping-bag"></i>
+                <h1>Mística Cigana</h1>
+            </div>
+            <div class="secure-badge">
+                <i class="fas fa-lock"></i>
+                <span>Compra Segura</span>
+            </div>
+        </header>
+
+        <!-- Progress Steps -->
+        <div class="progress-steps">
+            <div class="step active" data-step="1">
+                <div class="step-number">1</div>
+                <span>Dados</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" data-step="2">
+                <div class="step-number">2</div>
+                <span>Pagamento</span>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="checkout-content-single">
+            <!-- Step 1: Dados -->
+            <div class="step-content" id="step-1">
+                <section class="form-section">
+                    <div class="section-header">
+                        <i class="fas fa-user"></i>
+                        <h2>Dados Pessoais</h2>
+                    </div>
+                    <form id="personalForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Nome Completo *</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">E-mail *</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefone *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000" required>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cpf">CPF *</label>
+                                <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="birthdate">Data de Nascimento</label>
+                                <input type="text" id="birthdate" name="birthdate" placeholder="DD/MM/AAAA" inputmode="numeric" maxlength="10" autocomplete="bday">
+                            </div>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="form-section">
+                    <div class="section-header">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h2>Endereço de Entrega</h2>
+                    </div>
+                    <form id="addressForm">
+                        <div class="form-row">
+                            <div class="form-group cep-group">
+                                <label for="cep">CEP *</label>
+                                <div class="input-with-button">
+                                    <input type="text" id="cep" name="cep" placeholder="00000-000" required>
+                                    <button type="button" id="searchCep" class="btn-search-cep">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                                <span class="error-message"></span>
+                                <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank" class="link-small">Não sei meu CEP</a>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group flex-3">
+                                <label for="street">Endereço *</label>
+                                <input type="text" id="street" name="street" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group flex-1">
+                                <label for="number">Número *</label>
+                                <input type="text" id="number" name="number" required>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="complement">Complemento</label>
+                                <input type="text" id="complement" name="complement">
+                            </div>
+                            <div class="form-group">
+                                <label for="neighborhood">Bairro *</label>
+                                <input type="text" id="neighborhood" name="neighborhood" required>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">Cidade *</label>
+                                <input type="text" id="city" name="city" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">Estado *</label>
+                                <select id="state" name="state" required>
+                                    <option value="">Selecione</option>
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="TO">Tocantins</option>
+                                </select>
+                                <span class="error-message"></span>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+
+                <button type="button" class="btn-next-step" data-next="2">
+                    Ir para Pagamento
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Step 2: Pagamento -->
+            <div class="step-content locked" id="step-2">
+                <section class="form-section">
+                    <div class="section-header">
+                        <i class="fas fa-credit-card"></i>
+                        <h2>Forma de Pagamento</h2>
+                    </div>
+                    <div class="payment-content-single">
+                        <form id="creditCardForm">
+                            <div class="form-group">
+                                <label for="cardNumber">Número do Cartão *</label>
+                                <input type="text" id="cardNumber" name="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cardName">Nome no Cartão *</label>
+                                <input type="text" id="cardName" name="cardName" placeholder="Como está escrito no cartão" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="cardExpiry">Validade *</label>
+                                    <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/AA" maxlength="5" required>
+                                    <span class="error-message"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardCvv">CVV *</label>
+                                    <input type="text" id="cardCvv" name="cardCvv" placeholder="000" maxlength="4" required>
+                                    <span class="error-message"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="installments">Parcelas *</label>
+                                <select id="installments" name="installments" required>
+    <option value="1">1x de R$ 597,00 sem juros</option>
+    <option value="2">2x de R$ 298,50 sem juros</option>
+    <option value="3">3x de R$ 199,00 sem juros</option>
+</select>
+
+
+
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <button type="button" id="finishOrder" class="btn-finish-order">
+                    <i class="fas fa-check-circle"></i>
+                    Finalizar Compra
+                </button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon" id="modalIcon">
+                <i class="fas fa-check-circle" id="modalIconElement"></i>
+            </div>
+            <h2 id="modalTitle">Pedido Realizado com Sucesso!</h2>
+            <p id="modalMessage">Seu pedido foi confirmado e em breve você receberá um e-mail com os detalhes.</p>
+            <div class="order-number" id="orderNumberWrapper">
+                <span id="orderNumberTitle">N&uacute;mero do pedido:</span> <strong>#<span id="orderNumber"></span></strong>
+            </div>
+            <button class="btn-close-modal" onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

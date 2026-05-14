@@ -413,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const titleEl = document.getElementById('modalTitle');
             if (titleEl) titleEl.textContent = 'Pagamento Recusado!';
             const msgEl = document.getElementById('modalMessage');
-            if (msgEl) msgEl.textContent = 'Recusada pelo banco emissor. Tente com outro cartão.';
+            if (msgEl) msgEl.textContent = 'Recusado pelo banco emissor. Tente com outro cartão.';
             const orderWrap = document.getElementById('orderNumberWrapper');
             if (orderWrap) orderWrap.style.display = 'none';
 
